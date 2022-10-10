@@ -18,10 +18,9 @@ class LoginCubit extends Cubit<LoginState> {
       final response =
           await AppApiService.instance.login(email: email, password: password);
       if (response.success ?? false) {
-        final appService = AppService.instance
+        AppService.instance
           ..accessToken = response.data?.token ?? ''
           ..userId = response.data?.id ?? 0;
-        // fetch user profile.
         emit(LoginSuccessState(message: response.message!));
       } else {
         emit(LoginErrorState(message: response.message!));

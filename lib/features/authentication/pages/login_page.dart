@@ -19,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool _isPasswordVisible = false;
-  final bool _isLoading = false;
+  bool _isLoading = false;
 
   void _logIn() {
     if (!(_formKey.currentState?.validate() ?? false)) {
@@ -40,10 +40,14 @@ class _LoginPageState extends State<LoginPage> {
             if (state is LoginSuccessState) {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(state.message)));
+              setState(() => _isLoading = false);
               Navigator.of(context).pushReplacementNamed(HomePage.routeName);
+            } else if (state is LoginLoadingState) {
+              setState(() => _isLoading = true);
             } else if (state is LoginErrorState) {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(state.message)));
+              setState(() => _isLoading = false);
             }
           },
           child: Form(

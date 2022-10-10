@@ -16,7 +16,8 @@ ActivityLogResponse _$ActivityLogResponseFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ActivityLogResponseToJson(
-        ActivityLogResponse instance) =>
+  ActivityLogResponse instance,
+) =>
     <String, dynamic>{
       'success': instance.success,
       'message': instance.message,
