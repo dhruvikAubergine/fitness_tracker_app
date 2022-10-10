@@ -30,8 +30,6 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
-  // Hive.registerAdapter(UserProfileAdapter());
-
   await Hive.openBox('App Service Box');
 
   FlutterError.onError = (details) {
