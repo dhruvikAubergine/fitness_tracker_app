@@ -7,6 +7,7 @@ import 'package:fitness_tracker_app/features/profile/modals/profile_response.dar
 import 'package:fitness_tracker_app/services/app_service.dart';
 import 'package:http/http.dart' as http;
 
+/// Generates api calls and handles responses.
 class AppApiService {
   factory AppApiService() => _instance;
   AppApiService._();
@@ -14,11 +15,12 @@ class AppApiService {
   static final AppApiService _instance = AppApiService._();
   final String baseUrl = 'http://devapi.mycubii.com';
 
+  /// Login in to application.
   Future<LoginResponse> login({
     required String email,
     required String password,
   }) async {
-    final url = Uri.parse('http://devapi.mycubii.com/api/v5/login/');
+    final url = Uri.parse('$baseUrl/api/v5/login/');
     final body = {
       'email': email,
       'password': password,
@@ -37,6 +39,7 @@ class AppApiService {
     return loginResponse;
   }
 
+  /// get chart details.
   Future<ChartResponse> getChartDetails({
     required String startDate,
     required String endDate,
@@ -60,6 +63,7 @@ class AppApiService {
     return chartDetailsResponse;
   }
 
+  /// get activity log data.
   Future<ActivityLogResponse> getActivityLog({
     required String startDate,
     required String endDate,
@@ -83,6 +87,7 @@ class AppApiService {
     return activityLogResponse;
   }
 
+  /// get user profile data.
   Future<ProfileResponse> getUserProfile() async {
     final appService = AppService.instance;
     final url = Uri.parse(

@@ -8,6 +8,7 @@ import 'package:fitness_tracker_app/services/app_api_service.dart';
 
 part 'profile_state.dart';
 
+/// Provides a method to get user profile data.
 class ProfileCubit extends Cubit<ProfileState> {
   ProfileCubit() : super(ProfileInitialState());
   Future<void> getUserProfile() async {

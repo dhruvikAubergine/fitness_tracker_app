@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+/// This is the root of the widget tree and starting point of the application.
 class App extends StatefulWidget {
   const App({super.key});
 

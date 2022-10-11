@@ -2,11 +2,10 @@ import 'package:fitness_tracker_app/features/home/cubit/activity_log_cubit.dart'
 import 'package:fitness_tracker_app/features/home/cubit/chart_details_cubit.dart';
 import 'package:fitness_tracker_app/features/home/widgets/activity_log_widget.dart';
 import 'package:fitness_tracker_app/features/home/widgets/chart_widget.dart';
+import 'package:fitness_tracker_app/features/profile/pages/profile_page.dart';
 import 'package:fitness_tracker_app/utils/helperFuctions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../profile/pages/profile_page.dart';
 
 /// Provides a home page with chat and activity logs.
 class HomePage extends StatefulWidget {
